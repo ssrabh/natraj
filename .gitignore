@@ -1,0 +1,73 @@
+# =========================================================
+# Node.js / TypeScript / Drizzle Backend Git Ignore File
+# =========================================================
+
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+drizzle/
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Logs
+logs/
+*.log
+*.log.*
+logfile
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Drizzle migrations cache
+.drizzle/
+.drizzle-kit/
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+.DS_Store
+Thumbs.db
+
+# OS specific
+*.tmp
+*.temp
+
+# Coverage / testing
+coverage/
+.nyc_output/
+jest-html-reporters-*
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional lock files (choose one to keep if you use a specific manager)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Security / Credentials
+*.pem
+*.key
+*.crt
+*.p12
+*.cer
+
+# Temporary uploads or generated assets
+uploads/
+temp/
+tmp/

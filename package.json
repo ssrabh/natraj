@@ -1,0 +1,44 @@
+{
+  "name": "d2c_backend",
+  "version": "1.0.0",
+  "description": "Backend for D2CX Foundations contact form",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write .",
+    "migrate": "npx drizzle-kit push",
+    "generate": "npx drizzle-kit generate",
+    "retry-emails": "ts-node src/jobs/resendEmails.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "drizzle-kit": "^0.31.6",
+    "drizzle-orm": "^0.44.7",
+    "drizzle-zod": "^0.8.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.0",
+    "helmet": "^8.1.0",
+    "nodemailer": "^7.0.10",
+    "pg": "^8.16.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.9.2",
+    "@types/nodemailer": "^7.0.3",
+    "@types/pg": "^8.15.6",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
