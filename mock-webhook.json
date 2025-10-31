@@ -1,1 +1,0 @@
-{"event":"payment.captured","payload":{"payment":{"entity":{"id":"pay_MOCK12345","entity":"payment","amount":49900,"currency":"INR","status":"captured","order_id":"order_MOCK12345","email":"testuser@example.com","contact":"+919999999999","notes":{"fullName":"Test User","billingAddress":"123 Demo Street, Delhi","gstNumber":"22ABCDE1234F2Z5"}}}}}
