@@ -21,12 +21,13 @@ export const createContact = async (data: ContactInput) => {
     console.log("✅ Contact saved in DB");
 
     // ✅ Step 2: Try to send email (but don’t break on failure)
-    try {
-      await sendEmail(`New Contact Query from ${data.firstName}`, data);
-      console.log("📧 Email sent successfully");
-    } catch (emailErr: any) {
-      console.error("⚠️ Email sending failed (but continuing):", emailErr.message);
-    }
+    // Note: Email sending is currently disabled
+    // try {
+    //   await sendEmail(`New Contact Query from ${data.firstName}`, data);
+    //   console.log("📧 Email sent successfully");
+    // } catch (emailErr: any) {
+    //   console.error("⚠️ Email sending failed (but continuing):", emailErr.message);
+    // }
 
     // ✅ Step 3: Always return success to the frontend
     return {
