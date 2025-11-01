@@ -3,15 +3,12 @@ import cors from "cors";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import contactRoutes from "./routes/contact.routes";
-import paymentRoutes from "./routes/payment.routes";
+import bodyParser from "body-parser";
+import { paymentWebhookHandler } from "./routes/payment.routes";
 
 const app = express();
 
-// ⚠️ 1️⃣ Mount Razorpay webhook route BEFORE json parser
-// (so it can access raw body for signature verification)
-app.use("/api/payments/webhook", paymentRoutes);
-
-// ✅ 2️⃣ Parse JSON for all other routes
+// ✅ Parse JSON for other routes
 app.use(express.json());
 app.use(helmet({ crossOriginResourcePolicy: false }));
 
@@ -27,7 +24,7 @@ app.use(
     })
 );
 
-// ✅ Rate limiting from env
+// ✅ Rate limiting
 app.use(
     rateLimit({
         windowMs: Number(process.env.RATE_LIMIT_WINDOW) || 60000,
@@ -36,7 +33,14 @@ app.use(
     })
 );
 
-// ✅ Mount other routes after JSON middleware
+// ✅ Mount other routes
 app.use("/api/contact", contactRoutes);
+
+// ✅ Razorpay webhook (raw body)
+app.post(
+    "/api/payments/webhook",
+    bodyParser.raw({ type: "application/json" }),
+    paymentWebhookHandler
+);
 
 export default app;
